@@ -1,0 +1,32 @@
+﻿@using Microsoft.JSInterop
+@using DevExpress.Blazor
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+@inject NavigationManager NavManager
+
+<div @ref="FileManagerRef"></div>
+
+@code {
+    ElementReference FileManagerRef { get; set; }
+    IJSObjectReference ClientModule { get; set; }
+    IJSObjectReference ClientFileManager { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (firstRender) {
+            await JS.LoadDxResources();
+            ClientModule = await JS.InvokeAsync<IJSObjectReference>("import", "./DevExtremeComponents/DevExtremeFileManager.razor.js");
+            ClientFileManager = await ClientModule.InvokeAsync<IJSObjectReference>("initializeFileManager", FileManagerRef,
+                NavManager.ToAbsoluteUri("api/file-manager-file-system"));
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync() {
+        if (ClientFileManager != null)
+            await ClientFileManager.DisposeAsync();
+        if (ClientModule != null)
+            await ClientModule.DisposeAsync();
+    }
+
+}
