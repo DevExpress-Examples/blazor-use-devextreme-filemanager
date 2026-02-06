@@ -3,7 +3,27 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <NodeModulesDir>$(ProjectDir)node_modules\</NodeModulesDir>
+    <WwwRootDir>$(ProjectDir)wwwroot\</WwwRootDir>
   </PropertyGroup>
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="BeforeBuild" Condition=" '$(Configuration)' == 'Debug' ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="CopyFilesFromNodeModules" BeforeTargets="Build">
+    <ItemGroup>
+      <StyleFiles Include="$(NodeModulesDir)devextreme-dist\css\dx.fluent.blue.light.css" />
+      <IconFiles Include="$(NodeModulesDir)devextreme-dist\css\icons\*"></IconFiles>
+    </ItemGroup>
+    <Copy SourceFiles="@(StyleFiles)" DestinationFolder="$(WwwRootDir)css\" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(IconFiles)" DestinationFolder="$(WwwRootDir)css\icons\" SkipUnchangedFiles="true" />
+  </Target>
   <ItemGroup>
     <PackageReference Include="DevExpress.Blazor" Version="25.2.*" />
     <PackageReference Include="DevExtreme.AspNet.Core" Version="25.2.*" />
