@@ -10,6 +10,7 @@ public class FileManagerApiController : Controller {
         _hostingEnvironment = environment;
     }
 
+    [AutoValidateAntiforgeryToken]
     [Route("api/file-manager-file-system")]
     public object FileSystem(FileSystemCommand command, string arguments) {
         var config = new FileSystemConfiguration {
