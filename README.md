@@ -74,7 +74,7 @@ Implement a Blazor component that wraps a DevExtreme FileManager UI component. T
         });
     }
     ```
-* [DevExtremeFileManager.razor](/FileManagerBlazorApp/DevExtremeComponents/DevExtremeFileManager.razor) loads all client scripts on the first render using the [LoadDxResources](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxResourceManager.LoadDxResources(Microsoft.JSInterop.IJSRuntime)) method and executes the `initializeFileManager` function:
+* [DevExtremeFileManager.razor](/FileManagerBlazorApp/DevExtremeComponents/DevExtremeFileManager.razor) loads all client scripts on the first render via the [LoadDxResources](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxResourceManager.LoadDxResources(Microsoft.JSInterop.IJSRuntime)) method call and executes the `initializeFileManager` function:
     ```Razor
     protected override async Task OnAfterRenderAsync(bool firstRender) {
         if (firstRender) {
