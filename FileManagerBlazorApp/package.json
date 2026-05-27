@@ -3,6 +3,6 @@
   "name": "asp.net",
   "private": true,
   "devDependencies": {
-    "devextreme-dist": "25.2.3"
+    "devextreme-dist": "25.2.*-*"
   }
 }
