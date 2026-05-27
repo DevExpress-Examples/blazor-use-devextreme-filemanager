@@ -27,5 +27,6 @@
   <ItemGroup>
     <PackageReference Include="DevExpress.Blazor" Version="25.2.*-*" />
     <PackageReference Include="DevExtreme.AspNet.Core" Version="25.2.*-*" />
+    <PackageReference Include="DevExpress.Data" Version="25.2.*-*" />
   </ItemGroup>
 </Project>
