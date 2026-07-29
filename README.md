@@ -110,7 +110,7 @@ Use the wrapper as a standard Blazor component:
 - [Add DevExtreme Components to a Blazor Application](https://docs.devexpress.com/Blazor/403578/components/devextreme-components-in-blazor)
 - [Get Started with DevExtreme jQuery/JS](https://js.devexpress.com/jQuery/Documentation/Guide/Common/First_Steps/)
 - [JavaScript/jQuery FileManager - Getting Started](https://js.devexpress.com/jQuery/Documentation/Guide/UI_Components/FileManager/Getting_Started_with_File_Manager/)
-- [Remote File System Provider](https://docs.devexpress.com/AspNetCore/401320/devextreme-based-controls/controls/file-manager#remote-file-system-provider)
+- [Remote File System Provider](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.RemoteFileSystemProviderBuilder)
 
 ## More Examples
 
