@@ -20,7 +20,7 @@ The DevExpress Blazor [Resource Manager](https://docs.devexpress.com/Blazor/DevE
 
 ### Create an Endpoint to Access a File System
 
-To allow the DevExtreme FileManager to access and modify a file system, create a separate endpoint - define and configure a controller action as described in the following help topic: [Remote File System Provider](https://docs.devexpress.com/AspNetCore/401320/devextreme-based-controls/controls/file-manager#remote-file-system-provider). This example uses the following approach ([FileManagerApiController.cs](/FileManagerBlazorApp/Controllers/FileManagerApiController.cs)):
+To allow the DevExtreme FileManager to access and modify a file system, create a separate endpoint - define and configure a controller action as described in the following help topic: [Remote File System Provider](https://docs.devexpress.com/AspNetCore/DevExtreme.AspNet.Mvc.Builders.RemoteFileSystemProviderBuilder). This example uses the following approach ([FileManagerApiController.cs](/FileManagerBlazorApp/Controllers/FileManagerApiController.cs)):
 
 ```cs
 [AutoValidateAntiforgeryToken]
