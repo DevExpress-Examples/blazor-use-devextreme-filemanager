@@ -25,8 +25,8 @@
     <Copy SourceFiles="@(IconFiles)" DestinationFolder="$(WwwRootDir)css\icons\" SkipUnchangedFiles="true" />
   </Target>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Blazor" Version="26.1.*-*" />
-    <PackageReference Include="DevExtreme.AspNet.Core" Version="25.2.*-*" />
-    <PackageReference Include="DevExpress.Data" Version="26.1.*-*" />
+    <PackageReference Include="DevExpress.Blazor" Version="26.2.*-*" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="26.2.*-*" />
+    <PackageReference Include="DevExpress.Data" Version="26.2.*-*" />
   </ItemGroup>
 </Project>
